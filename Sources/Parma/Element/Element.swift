@@ -12,7 +12,7 @@ import Foundation
 
 /// Markdown elements.
 enum Element: Hashable {
-    case text, heading, paragraph, list, item, image, strong, emphasis, link, code, unknown, codeBlock, blockQuote
+    case text, heading, paragraph, list, item, image, strong, emphasis, link, code, unknown, codeBlock, blockQuote, divider
     
     /// If the specific element works as inline.
     var isInline: Bool {
@@ -51,6 +51,8 @@ enum Element: Hashable {
             return Self.codeBlock
         case "block_quote":
             return Self.blockQuote
+        case "thematic_break"
+            return Self.divider
         default:
             return Self.unknown
         }
@@ -83,6 +85,8 @@ enum Element: Hashable {
             return "code_block"
         case .blockQuote:
             return "block_quote"
+        case .divider:
+            return "thematic_break"
         default:
             return "unknown"
         }
