@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct BlockQuoteElementComposer: BlockElementComposer {
+class BlockQuoteElementComposer: BlockElementComposer {
     private var index = [Int]()
     
     func willStart(in context: ComposingContext) {

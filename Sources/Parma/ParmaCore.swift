@@ -93,7 +93,7 @@ class ParmaCore: NSObject {
             .image : imageElementComposer,
             .list : listElementComposer,
             .item : listItemElementComposer,
-            .blockQuote:
+            .blockQuote: blockQuoteElementComposer,
             .unknown : unknownElementComposer
         ]
     }

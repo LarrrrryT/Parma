@@ -106,6 +106,10 @@ extension ParmaRenderable {
     public func paragraph(text: String) -> Text {
         Text(text).font(.body)
     }
+    
+    public func blockQuoteBlock(view: AnyView) -> AnyView {
+        AnyView(view.fixedSize(horizontal: false, vertical: true).padding(.bottom, 8))
+    }
 
     public func headingBlock(level: HeadingLevel?, view: AnyView) -> AnyView {
         AnyView(view.padding(.bottom, 12))
