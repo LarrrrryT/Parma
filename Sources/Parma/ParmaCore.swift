@@ -64,7 +64,7 @@ class ParmaCore: NSObject {
     
     // MARK: - Initialization
     convenience init(_ markdown: String) throws {
-        let down = Down(markdownString: escapeContent(markdown))
+        let down = Down(markdownString: markdown)
         let xml = try down.toXML()
         self.init(xmlData: Data(xml.utf8))
     }
