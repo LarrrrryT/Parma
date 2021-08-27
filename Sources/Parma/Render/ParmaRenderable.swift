@@ -58,6 +58,10 @@ public protocol ParmaRenderable {
     /// - Parameter view: The view contains view(s) which belong(s) to this paragraph.
     func paragraphBlock(view: AnyView) -> AnyView
     
+    /// Define the style of divider view.
+    /// - Parameter view: The view contains view(s) which belong(s) to this divider.
+    func dividerBlock(view: AnyView) -> AnyView
+    
     /// Define the style of block quote view.
     /// - Parameter view: The view contains view(s) which belong(s) to this block quote.
     func blockQuoteBlock(view: AnyView) -> AnyView
@@ -82,6 +86,10 @@ extension ParmaRenderable {
     
     public func strong(textView: Text) -> Text {
         textView.bold()
+    }
+    
+    public func dividerBlock(view: AnyView) -> AnyView {
+        AnyView(Divider())
     }
     
     public func strikethrough(textView: Text) -> Text {

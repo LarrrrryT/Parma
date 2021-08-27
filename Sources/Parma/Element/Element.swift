@@ -51,7 +51,7 @@ enum Element: Hashable {
             return Self.codeBlock
         case "block_quote":
             return Self.blockQuote
-        case "thematic_break"
+        case "thematic_break":
             return Self.divider
         default:
             return Self.unknown
