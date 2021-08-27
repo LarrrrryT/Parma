@@ -30,6 +30,10 @@ public protocol ParmaRenderable {
     /// - Parameter textView: The textView generated from captured strong string.
     func strong(textView: Text) -> Text
     
+    /// Define the strikethrough text style.
+    /// - Parameter textView: The textView generated from captured strikethrough string.
+    func strikethrough(textView: Text) -> Text
+    
     /// Define the emphasis text style.
     /// - Parameter textView: The textView generated from captured emphasis string.
     func emphasis(textView: Text) -> Text
@@ -78,6 +82,10 @@ extension ParmaRenderable {
     
     public func strong(textView: Text) -> Text {
         textView.bold()
+    }
+    
+    public func strikethrough(textView: Text) -> Text {
+        textView.strikethrough()
     }
     
     public func emphasis(textView: Text) -> Text {

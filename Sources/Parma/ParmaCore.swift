@@ -25,6 +25,7 @@ class ParmaCore: NSObject {
     // Composers
     private let plaintTextComposer = PlainTextComposer()
     private let strongElementComposer = StrongElementComposer()
+    private let strikethroughElementComposer = StrikethroughElementComposer()
     private let emphasisElementComposer = EmphasisElementComposer()
     private let linkElementComposer = LinkElementComposer()
     private let codeElementComposer = CodeElementComposer()
@@ -102,39 +103,6 @@ class ParmaCore: NSObject {
     func start() {
         parser.parse()
     }
-}
-
-// MARK: - Private function
-
-/// Sanitize input to prevent `<` and `>` from causing problems
-private func escapeContent(_ rawContent: String) -> String {
-    
-    enum EscapedCharacters: String, CaseIterable {
-        
-        case leftAngleBracket = "<",
-             rightAngleBracket = ">"
-        
-        func replacement() -> String {
-            switch self {
-            case .leftAngleBracket:
-                return "&lt;"
-            case .rightAngleBracket:
-                return "&gt;"
-            }
-        }
-        
-        static func escapeString(_ string: String) -> String {
-            var escapedValue = string
-            
-            self.allCases.forEach {
-                escapedValue = escapedValue.replacingOccurrences(of: $0.rawValue, with: $0.replacement())
-            }
-            
-            return escapedValue
-        }
-    }
-    
-    return EscapedCharacters.escapeString(rawContent)
 }
 
 // MARK: - XML parsing logic
